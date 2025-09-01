@@ -18,10 +18,26 @@ const createTodo = async () => {
   console.log('New todo:', todo);
 };
 
+const findTodo = async () => {
+  const allTodos = await Todo.find();
+  console.log('All Todos', allTodos);
+};
+
+const findSpecificTodo = async () => {
+  const allTodos = await Todo.find({
+    text: 'Learn JSaaaaaa',
+  });
+  console.log('All Todos', allTodos);
+};
+
 const runQueries = async () => {
   console.log('Queries running.');
   // The functions calls to run queries in our db will go here as we write them.
   await createTodo();
+  console.log('========================================');
+  await findTodo();
+  console.log('============================================');
+  await findSpecificTodo();
 };
 
 const connect = async () => {
